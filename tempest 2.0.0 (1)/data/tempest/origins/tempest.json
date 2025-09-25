@@ -1,0 +1,14 @@
+{
+    "name": "tempest",
+    "description": "Thunder welder",
+    "powers": [
+        "tempest:thunder_clap",
+        "tempest:hyper_nova",
+        "tempest:hypernova_charge",
+        "tempest:lightning_charge"
+    ],
+    "icon": {
+        "item": "minecraft:lightning_rod"
+    },
+    "impact": 0
+}

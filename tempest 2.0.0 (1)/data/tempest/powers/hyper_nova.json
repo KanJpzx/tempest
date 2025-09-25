@@ -1,0 +1,111 @@
+{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:if_else",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "tempest:hypernova_charge",
+            "comparison": ">=",
+            "compare_to": 6
+        },
+        "if_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "tempest:hypernova_charge",
+                    "change": -6,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add hypernova_caster"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:slowness 40 10 true"
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": {
+                        "type": "minecraft:electric_spark"
+                    },
+                    "count": 50,
+                    "speed": 0.1,
+                    "spread": {
+                        "x": 1.5,
+                        "y": 2,
+                        "z": 1.5
+                    }
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": {
+                        "type": "minecraft:end_rod"
+                    },
+                    "count": 100,
+                    "speed": 0.2,
+                    "spread": {
+                        "x": 2,
+                        "y": 2,
+                        "z": 2
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:portal ~ ~ ~ 1 1 1 0.1 200 force"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:electric_spark ~ ~ ~ 2 1 2 0.05 150 force"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:enchant ~ ~ ~ 2 2 2 0.2 300 force"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle explosion_emitter ~ ~1 ~ 0 0 0 1 1 force"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 3 1"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "damage @e[distance=..8,tag=!hypernova_caster] 50 minecraft:magic"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "title @a actionbar {\"text\":\"§cHYPER NOVA!!!\",\"bold\":true}"
+                            }
+                        ]
+                    },
+                    "ticks": 40
+                },
+                {
+                    "type": "origins:delay",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove hypernova_caster"
+                    },
+                    "ticks": 60
+                }
+            ]
+        }
+    },
+    "cooldown": 300,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/resource_bar.png",
+        "bar_index": 5
+    },
+    "key": {
+        "key": "key.origins.secondary_active"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "type": "apoli:action_on_damage",
+    "damage_condition": {
+        "type": "apoli:and",
+        "conditions": [
+            {
+                "type": "apoli:name",
+                "name": "lightning_bolt"
+            },
+            {
+                "type": "apoli:inverted",
+                "condition": {
+                    "type": "apoli:nbt",
+                    "nbt": "{Tags:[\"thunderclap_strike\"]}"
+                }
+            }
+        ]
+    },
+    "entity_action": {
+        "type": "apoli:change_resource",
+        "resource": "tempest:hypernova_charge",
+        "change": 1
+    }
+}
