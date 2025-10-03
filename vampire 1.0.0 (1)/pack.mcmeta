@@ -1,0 +1,9 @@
+{
+    "pack": {
+        "name": "vampire",
+        "id": "vampire",
+        "pack_format": 15,
+        "version": "1.0.0",
+        "description": ""
+    }
+}

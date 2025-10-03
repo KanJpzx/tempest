@@ -1,0 +1,6 @@
+{
+    "condition": {
+        "type": "origins:sneaking"
+    },
+    "type": "origins:resource"
+}

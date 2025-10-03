@@ -1,0 +1,17 @@
+{
+    "name": "vampire",
+    "description": "w",
+    "powers": [
+        "vampire:blood_master",
+        "vampire:sunlight_weakness",
+        "vampire:blood_aura",
+        "vampire:blood_shield",
+        "vampire:blood_resource",
+        "vampire:helmet_protection",
+        "vampire:piercing_blood"
+    ],
+    "icon": {
+        "item": "minecraft:redstone"
+    },
+    "impact": 3
+}

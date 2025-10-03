@@ -1,0 +1,12 @@
+{
+    "name": "§cBlood Feast",
+    "description": "When you strike down a foe, their blood is consumed by your curse, filling your crimson reservoir.",
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:change_resource",
+        "resource": "vampire:blood_resource",
+        "change": 12,
+        "operation": "add"
+    },
+    "cooldown": 1
+}

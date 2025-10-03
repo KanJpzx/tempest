@@ -1,0 +1,88 @@
+{
+    "name": "§4Blood Lance",
+    "description": "§cFire a crimson lance of blood straight forward, piercing all in its path. Costs 50 blood essence.",
+    "condition": {
+        "type": "origins:resource",
+        "resource": "vampire:blood_resource",
+        "comparison": ">=",
+        "compare_to": 50
+    },
+    "type": "origins:active_self",
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    },
+    "cooldown": 100,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/resource_bar.png",
+        "bar_index": 0
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:fire_projectile",
+                "entity_type": "minecraft:arrow",
+                "speed": 3.8,
+                "tag": "{damage:40,PierceLevel:50,Invisible:1b,Pickup:0b,NoGravity:1b,ShotFromCrossbow:1b}"
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "vampire:blood_resource",
+                "change": -50
+            }
+        ]
+    },
+    "projectile_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:particle",
+                "particle": {
+                    "type": "minecraft:dust",
+                    "params": [
+                        1,
+                        0,
+                        0,
+                        2
+                    ]
+                },
+                "count": 50,
+                "spread": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                "speed": 0
+            },
+            {
+                "type": "origins:particle",
+                "particle": {
+                    "type": "minecraft:dust",
+                    "params": [
+                        0.6,
+                        0,
+                        0,
+                        1.2
+                    ]
+                },
+                "count": 25,
+                "spread": [
+                    0.05,
+                    0.05,
+                    0.05
+                ],
+                "speed": 0
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 12,
+                "action": {
+                    "type": "origins:remove",
+                    "entity": "this"
+                }
+            }
+        ]
+    }
+}
